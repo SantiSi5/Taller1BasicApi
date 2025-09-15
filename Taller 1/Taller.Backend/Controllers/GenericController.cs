@@ -34,17 +34,6 @@ public class GenericController<T> : Controller where T : class
         return NotFound();
     }
 
-    [HttpGet("search/{coincidence}")]
-    public virtual async Task<IActionResult> GetAsync(string coincidence)
-    {
-        var action = await _unitOfWork.GetAsync(coincidence);
-        if (action.WasSuccess)
-        {
-            return Ok(action.Result);
-        }
-        return NotFound();
-    }
-
     [HttpPost]
     public virtual async Task<IActionResult> PostAsync(T model)
     {

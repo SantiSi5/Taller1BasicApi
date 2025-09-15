@@ -6,8 +6,6 @@ public interface IGenericRepository<T> where T : class
 {
     Task<ActionResponse<T>> GetAsync(int id);
 
-    Task<ActionResponse<T>> GetAsync(string coincidence);
-
     Task<ActionResponse<IEnumerable<T>>> GetAsync();
 
     Task<ActionResponse<T>> AddAsync(T entity);

@@ -7,12 +7,12 @@ public class Employee
     public int Id { get; set; }
 
     [Display(Name = "Nombre")]
-    [MaxLength(50, ErrorMessage = "El Campo {0} no puede tener mas de {1} carácteres.")]
+    [MaxLength(30, ErrorMessage = "El Campo {0} no puede tener mas de {1} carácteres.")]
     [Required(ErrorMessage = "El campo {0} es obligatorio.")]
     public string FirstName { get; set; } = null!;
 
     [Display(Name = "Apellido")]
-    [MaxLength(50, ErrorMessage = "El Campo {0} no puede tener mas de {1} carácteres.")]
+    [MaxLength(30, ErrorMessage = "El Campo {0} no puede tener mas de {1} carácteres.")]
     [Required(ErrorMessage = "El campo {0} es obligatorio.")]
     public string LastName { get; set; } = null!;
 

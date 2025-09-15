@@ -84,11 +84,6 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         };
     }
 
-    public virtual async Task<ActionResponse<T>> GetAsync(string coincidence)
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task<ActionResponse<IEnumerable<T>>> GetAsync() => new ActionResponse<IEnumerable<T>>
     {
         WasSuccess = true,

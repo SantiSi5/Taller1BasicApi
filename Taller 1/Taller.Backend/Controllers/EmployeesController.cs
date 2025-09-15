@@ -8,7 +8,21 @@ namespace Taller.Backend.Controllers;
 [Route("api/[controller]")]
 public class EmployeesController : GenericController<Employee>
 {
-    public EmployeesController(IGenericUnitOfWork<Employee> unitOfWork) : base(unitOfWork)
+    private readonly IEmployeeUnitOfWork _employeesUnitOfWork;
+
+    public EmployeesController(IGenericUnitOfWork<Employee> unitOfWork, IEmployeeUnitOfWork employeesUnitOfWork) : base(unitOfWork)
     {
+        _employeesUnitOfWork = employeesUnitOfWork;
+    }
+
+    [HttpGet("search/{coincidence}")]
+    public async Task<IActionResult> GetByCoincidence(string coincidence)
+    {
+        var response = await _employeesUnitOfWork.GetByCoincidenceAsync(coincidence);
+        if (response.WasSuccess)
+        {
+            return Ok(response.Result);
+        }
+        return NotFound(response.Message);
     }
 }
